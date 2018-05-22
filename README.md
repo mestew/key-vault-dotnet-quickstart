@@ -29,7 +29,7 @@ In addition you would need
 
 ### Quickstart
 #### On Windows
-- Download the powershell command in this repo (Named Setup.ps1) in administrator mode
+- Download the powershell command in this repo (Named Setup.ps1) and run it in administrator mode
 - Go to C:\Temp folder by using cd C:\temp command. 
 - Find the cert named .pfx in that folder and install it on your machine (by right clicking on the .pfx file and selecting Install)
 - Clone this repository. Once cloned open the repo in any text editor and run the following command w.r.t that folder
