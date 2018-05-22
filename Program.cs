@@ -22,7 +22,10 @@ namespace dotnetconsole
             // System.Console.WriteLine(result);
             // var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Util.GetAccessToken));           
             KeyVault sample = new KeyVault();
-            var envVar = Environment.GetEnvironmentVariable("CertName");
+            var waitHandle = sample.CreateSecretKeyValuePair("https://" + System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User) + ".vault.azure.net/");    
+
+            waitHandle.Wait();
+            
             // KeyVault.GetCert();
             sample.GetResult();
         }

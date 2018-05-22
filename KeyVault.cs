@@ -32,7 +32,7 @@ namespace dotnetconsole
         }
 
 
-        private async Task CreateSecretKeyValuePair(string vaultBaseURL)
+        public async Task CreateSecretKeyValuePair(string vaultBaseURL)
         {
             System.Console.WriteLine("Authenticating to Key Vault using ADAL Callback");
             System.Console.WriteLine(vaultBaseURL);
