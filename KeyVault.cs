@@ -31,7 +31,7 @@ namespace dotnetconsole
             System.Console.WriteLine("Authenticating to Key Vault using ADAL Callback");
             System.Console.WriteLine(vaultBaseURL);
             KeyVaultClient kvClient = new KeyVaultClient(this.GetAccessToken);
-            await kvClient.SetSecretAsync(vaultBaseURL, "TestKey", "TestVault");
+            await kvClient.SetSecretAsync(vaultBaseURL, "TestKey", "TestSecret");
         }
 
         public void GetResult()
