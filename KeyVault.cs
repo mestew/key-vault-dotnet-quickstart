@@ -15,12 +15,6 @@ namespace dotnetconsole
         }
    
         public static ClientAssertionCertificate AssertionCert { get; set; }
-
-        public static void GetCert()
-        {
-            // var result = CertificateHelper.FindCertificateByThumbprint("c9c1ffb41706ed59f5ea1a6dff942142c2996875");
-            
-        }
         
         public async Task<string> GetAccessToken(string authority, string resource, string scope)
         {
@@ -37,9 +31,7 @@ namespace dotnetconsole
             System.Console.WriteLine("Authenticating to Key Vault using ADAL Callback");
             System.Console.WriteLine(vaultBaseURL);
             KeyVaultClient kvClient = new KeyVaultClient(this.GetAccessToken);
-            await kvClient.SetSecretAsync(vaultBaseURL, "TestKey", "TestVaule");
-            // SecretBundle secretBundle = await kvClient.GetSecretAsync(vaultBaseURL, "TestKey");
-            // System.Console.WriteLine("Retrieved" + secretBundle.Value);
+            await kvClient.SetSecretAsync(vaultBaseURL, "TestKey", "TestVault");
         }
 
         public void GetResult()
