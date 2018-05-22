@@ -5,24 +5,10 @@
 # Assign the self signed certificate as a key to the AAD Application
 # Create a Resource Group and Key Vault
 # Give the AAD Application permissions to read from your Key Vault
-#
-# Please edit the variable values such as vaultName below
 # **********************************************************************************************
 
-# $Server = Read-Host -Prompt 'Input your server  name'
-# $User = Read-Host -Prompt 'Input the user name'
-# $Date = Get-Date
-# Write-Host "You input server '$Server' and '$User' on '$Date'" 
-# $securedValue = Read-Host -AsSecureString
-# $bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($securedValue)
-# $value = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
-
-# **********************************************************************************************
-# You MUST set the following values before running this script
-# **********************************************************************************************
 
 Write-Host 'Vault name must be between 3-24 alphanumeric characters. The name must begin with a letter, end with a letter or digit, and not contain consecutive hypens' -foregroundcolor Yellow
-
 $vaultName = Read-Host -Prompt 'Please input a Vault Name'
 $resourceGroupName = Read-Host -Prompt 'Please input a Azure Resource Group Name'
 $applicationName = Read-Host -Prompt 'Please input application name in Azure Active Directory'
@@ -38,33 +24,12 @@ $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropS
 
 [System.Environment]::SetEnvironmentVariable('IDENTIFIER_URI', $identifierUri, [System.EnvironmentVariableTarget]::User)
 
-# $vaultName           = 'PrashanthPSVault'
-# $resourceGroupName   = 'MyResourceGroupName'
-# $applicationName     = 'MyAppName'
-# $identifierUri       = "https://prashanth21.com"
-# $CertName            = 'fridaycert'
-# $password            = 'firstPassw0rd!'
-
 # **********************************************************************************************
 # You MAY set the following values before running this script
 # **********************************************************************************************
 $location            = 'East US'                          # Get-AzureLocation
 $dnsName             = 'mytest.domain.com'
 $tempFolder = "C:\temp\"
-
-# **********************************************************************************************
-# We bounce this script execution if the default values are not changed
-# **********************************************************************************************
-# if (($vaultName -eq 'MyVaultName') -or `
-#     ($resourceGroupName -eq 'MyResourceGroupName') -or `
-# 	($applicationName -eq 'MyAppName') -or `
-# 	($CertName -eq 'quickstartcert') -or `
-#     ($password -eq 'firstPassw0rd!') -or `
-#     ($identifierUri -eq 'https://prashanth.com'))
-# {
-# 	Write-Host 'You must edit the values at the top of this script before executing' -foregroundcolor Yellow
-# 	exit
-# }
 
 # **********************************************************************************************
 # Create a self signed cert
