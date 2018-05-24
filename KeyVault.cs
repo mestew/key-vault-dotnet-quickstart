@@ -46,7 +46,7 @@ namespace dotnetconsole
                 var APPLICATION_ID = System.Environment.GetEnvironmentVariable("APPLICATION_ID", EnvironmentVariableTarget.User);
                 var CERT_THUMBPRINT = System.Environment.GetEnvironmentVariable("CERT_THUMBPRINT", EnvironmentVariableTarget.User);
                 var result = this._keyVaultClient.GetSecretAsync(keyvaultUri, "TestKey").Result.Value;
-                System.Console.WriteLine(result);    
+                System.Console.WriteLine("Secret Key retrieved is {0} and value is {1}, ", "TestKey", result);    
             }
             catch (System.Exception ex)
             {

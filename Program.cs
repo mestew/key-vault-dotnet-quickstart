@@ -21,12 +21,13 @@ namespace dotnetconsole
             
             KeyVault keyVaultObj = new KeyVault();
             var VaultName = "https://" + System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User) + ".vault.azure.net/";
-            Console.WriteLine("Vault Name is!", VaultName);
+            Console.WriteLine("Vault URI is! {0}", VaultName);
             var waitHandle = keyVaultObj.CreateSecretKeyValuePair(VaultName);    
 
             Console.WriteLine("Wait method is invoked to wait for Secret Key Value pair to be created");
             waitHandle.Wait();
             Console.WriteLine("Secret Key Value pair is now created");
+            System.Console.WriteLine("Secret Key retrieved is {0} and value is {1}, ", "TestKey", "TestSecret");    
             
             // KeyVault.GetCert();
             keyVaultObj.GetResult();
