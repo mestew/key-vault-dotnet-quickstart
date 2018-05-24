@@ -16,6 +16,7 @@ namespace dotnetconsole
    
         public static ClientAssertionCertificate AssertionCert { get; set; }
         
+        // This method is used to get a token from Azure Active Directory. 
         public async Task<string> GetAccessToken(string authority, string resource, string scope)
         {
             var context = new AuthenticationContext(authority, TokenCache.DefaultShared);
@@ -28,12 +29,15 @@ namespace dotnetconsole
 
         public async Task CreateSecretKeyValuePair(string vaultBaseURL)
         {
-            System.Console.WriteLine("Authenticating to Key Vault using ADAL Callback");
+            System.Console.WriteLine("Authenticating to Key Vault using ADAL Callback to create Secret Key Value Pair");
             System.Console.WriteLine(vaultBaseURL);
             KeyVaultClient kvClient = new KeyVaultClient(this.GetAccessToken);
             await kvClient.SetSecretAsync(vaultBaseURL, "TestKey", "TestSecret");
         }
 
+        // In this method we first get a token from Azure Active Directory by using the self signed cert we created in our powershell commands
+        // And then we pass that token to Azure Key Vault to authenticate the service principal to get access to the secrets
+        // Finally we retrieve the secret value that was created previously 
         public void GetResult()
         {
             try
@@ -49,7 +53,8 @@ namespace dotnetconsole
                 throw ex;
             }
         }
-      
+
+        // Given a thumbprint this method finds the certificate       
         public static X509Certificate2 FindCertificateByThumbprint(string findValue)
         {
             X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);

@@ -11,18 +11,25 @@ namespace dotnetconsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("This Application must be run after running the powershell script Setup.ps1!");
+            Console.WriteLine("This DotNet Console Application authenticates to Key Vault!");
+            Console.WriteLine("It also creates a Secret Key Value Pair!");
+            Console.WriteLine("And then it gets the Secret Key Value Pair!");
             var keyvaultUri = System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User);
             var APPLICATION_ID = System.Environment.GetEnvironmentVariable("APPLICATION_ID", EnvironmentVariableTarget.User);
             var CERT_THUMBPRINT = System.Environment.GetEnvironmentVariable("CERT_THUMBPRINT", EnvironmentVariableTarget.User);
             
-            KeyVault sample = new KeyVault();
-            var waitHandle = sample.CreateSecretKeyValuePair("https://" + System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User) + ".vault.azure.net/");    
+            KeyVault keyVaultObj = new KeyVault();
+            var VaultName = "https://" + System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User) + ".vault.azure.net/";
+            Console.WriteLine("Vault Name is!", VaultName);
+            var waitHandle = keyVaultObj.CreateSecretKeyValuePair(VaultName);    
 
+            Console.WriteLine("Wait method is invoked to wait for Secret Key Value pair to be created");
             waitHandle.Wait();
+            Console.WriteLine("Secret Key Value pair is now created");
             
             // KeyVault.GetCert();
-            sample.GetResult();
+            keyVaultObj.GetResult();
         }
     }
 }
