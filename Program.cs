@@ -27,10 +27,8 @@ namespace dotnetconsole
             Console.WriteLine("Wait method is invoked to wait for Secret Key Value pair to be created");
             waitHandle.Wait();
             Console.WriteLine("Secret Key Value pair is now created");
-            System.Console.WriteLine("Secret Key retrieved is {0} and value is {1}, ", "TestKey", "TestSecret");    
             
-            // KeyVault.GetCert();
-            keyVaultObj.GetResult(keyvaultUri);
+            keyVaultObj.GetResult(VaultName);
         }
     }
 }

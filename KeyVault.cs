@@ -42,7 +42,6 @@ namespace dotnetconsole
         {
             try
             {
-                var keyvaultUri = "https://" + System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User) + ".vault.azure.net/";
                 var result = this._keyVaultClient.GetSecretAsync(keyvaultUri, "TestKey").Result.Value;
                 System.Console.WriteLine("Secret Key retrieved is {0} and value is {1}, ", "TestKey", result);    
             }
