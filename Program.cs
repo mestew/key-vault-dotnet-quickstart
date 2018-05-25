@@ -20,7 +20,7 @@ namespace dotnetconsole
             var CERT_THUMBPRINT = System.Environment.GetEnvironmentVariable("CERT_THUMBPRINT", EnvironmentVariableTarget.User);
             
             KeyVault keyVaultObj = new KeyVault();
-            var VaultName = "https://" + System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User) + ".vault.azure.net/";
+            var VaultName = "https://" + keyvaultUri + ".vault.azure.net/";
             Console.WriteLine("Vault URI is! {0}", VaultName);
             var waitHandle = keyVaultObj.CreateSecretKeyValuePair(VaultName);    
 
@@ -30,7 +30,7 @@ namespace dotnetconsole
             System.Console.WriteLine("Secret Key retrieved is {0} and value is {1}, ", "TestKey", "TestSecret");    
             
             // KeyVault.GetCert();
-            keyVaultObj.GetResult();
+            keyVaultObj.GetResult(keyvaultUri);
         }
     }
 }

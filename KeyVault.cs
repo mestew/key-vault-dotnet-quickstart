@@ -38,13 +38,11 @@ namespace dotnetconsole
         // In this method we first get a token from Azure Active Directory by using the self signed cert we created in our powershell commands
         // And then we pass that token to Azure Key Vault to authenticate the service principal to get access to the secrets
         // Finally we retrieve the secret value that was created previously 
-        public void GetResult()
+        public void GetResult(string keyvaultUri)
         {
             try
             {
                 var keyvaultUri = "https://" + System.Environment.GetEnvironmentVariable("KEYVAULT_URI", EnvironmentVariableTarget.User) + ".vault.azure.net/";
-                var APPLICATION_ID = System.Environment.GetEnvironmentVariable("APPLICATION_ID", EnvironmentVariableTarget.User);
-                var CERT_THUMBPRINT = System.Environment.GetEnvironmentVariable("CERT_THUMBPRINT", EnvironmentVariableTarget.User);
                 var result = this._keyVaultClient.GetSecretAsync(keyvaultUri, "TestKey").Result.Value;
                 System.Console.WriteLine("Secret Key retrieved is {0} and value is {1}, ", "TestKey", result);    
             }
