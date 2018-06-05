@@ -10,7 +10,10 @@ namespace dotnetconsole
     public class KeyVault
     {
         KeyVaultClient _keyVaultClient;
-        public KeyVault() {
+        string APPLICATION_ID, CERT_THUMBPRINT;
+        public KeyVault(string APPLICATION_ID, string CERT_THUMBPRINT) {
+            this.APPLICATION_ID = APPLICATION_ID;
+            this.CERT_THUMBPRINT = CERT_THUMBPRINT;
             _keyVaultClient = new KeyVaultClient(this.GetAccessToken);
         }
    
@@ -20,8 +23,8 @@ namespace dotnetconsole
         public async Task<string> GetAccessToken(string authority, string resource, string scope)
         {
             var context = new AuthenticationContext(authority, TokenCache.DefaultShared);
-            var certByThumbprint = FindCertificateByThumbprint(System.Environment.GetEnvironmentVariable("CERT_THUMBPRINT", EnvironmentVariableTarget.User));
-            AssertionCert = new ClientAssertionCertificate(System.Environment.GetEnvironmentVariable("APPLICATION_ID", EnvironmentVariableTarget.User), certByThumbprint);
+            var certByThumbprint = FindCertificateByThumbprint(this.CERT_THUMBPRINT);
+            AssertionCert = new ClientAssertionCertificate(this.APPLICATION_ID, certByThumbprint);
             var result = await context.AcquireTokenAsync(resource, AssertionCert);
             return result.AccessToken;
         }

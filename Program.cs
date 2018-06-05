@@ -39,7 +39,7 @@ namespace dotnetconsole
                 KEYVAULT_URI = result.Item1;
             }
             
-            KeyVault keyVaultObj = new KeyVault();
+            KeyVault keyVaultObj = new KeyVault(APPLICATION_ID, CERT_THUMBPRINT);
             var VaultName = "https://" + KEYVAULT_URI + ".vault.azure.net/";
             
             var waitHandle = keyVaultObj.CreateSecretKeyValuePair(VaultName);    
