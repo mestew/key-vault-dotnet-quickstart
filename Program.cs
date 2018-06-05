@@ -33,7 +33,10 @@ namespace dotnetconsole
             }
             else 
             {
-                GetVariablesFromJSON();
+                var result = GetVariablesFromJSON();
+                APPLICATION_ID = result.Item2;
+                CERT_THUMBPRINT = result.Item3;
+                KEYVAULT_URI = result.Item1;
             }
             
             KeyVault keyVaultObj = new KeyVault();
@@ -52,25 +55,29 @@ namespace dotnetconsole
         private static Tuple<string, string, string> GetVariablesFromJSON()
         {
             var ServicePrincipalJSON = Directory.GetCurrentDirectory() + "\\ServicePrincipal.json";
-            var CertThumbprintJSON = Directory.GetCurrentDirectory() + "CertThumbprint.json";
-            var VaultJSON = Directory.GetCurrentDirectory() + "KeyVault.json";
+            var CertThumbprintJSON = Directory.GetCurrentDirectory() + "\\CertThumbprint.txt";
+            var VaultJSON = Directory.GetCurrentDirectory() + "\\KeyVault.json";
             if(File.Exists(ServicePrincipalJSON) && File.Exists(CertThumbprintJSON) && File.Exists(VaultJSON))
             {
-                ProcessFile(ServicePrincipalJSON, "appId");
-                ProcessFile(CertThumbprintJSON, "appId");
-                ProcessFile(VaultJSON, "Name");
-            }
+                return new Tuple<string, string, string>(ProcessFile(ServicePrincipalJSON, "appId", true), ProcessFile(CertThumbprintJSON, "", false), ProcessFile(VaultJSON, "Name", true));
+            } 
 
-            return new Tuple<string, string, string>(ProcessFile(ServicePrincipalJSON, "appId"), CertThumbprintJSON, VaultJSON);
+            return new Tuple<string, string, string>("", "", "");
         }
 
-        private static string ProcessFile(string fileName, string valueToLookFor)
+        private static string ProcessFile(string fileName, string valueToLookFor, bool isJson)
         {
             var result = "";
-            using (StreamReader SPJson = File.OpenText(fileName))
+            using (StreamReader ContentsOfFile = File.OpenText(fileName))
             {
-                var stuff = (JObject)JsonConvert.DeserializeObject(SPJson.ReadToEnd());
-                result = stuff[valueToLookFor].Value<string>();
+                if(isJson){
+                    var stuff = (JObject)JsonConvert.DeserializeObject(ContentsOfFile.ReadToEnd());
+                    result = stuff[valueToLookFor].Value<string>();
+                }
+                else {
+                    var contents = ContentsOfFile.ReadToEnd();
+                    result = contents.Split("=")[1];
+                }
             }            
             return result;
         }
