@@ -1,0 +1,8 @@
+{
+    "appId": "APP_ID",
+    "displayName": "ServicePrincipalName",
+    "fileWithCertAndPrivateKey" : "PathToYourPrivateKey",
+    "name": "http://ServicePrincipalName",
+    "password": "",
+    "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+  }
