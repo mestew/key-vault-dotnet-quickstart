@@ -25,7 +25,7 @@ namespace dotnetconsole
             string KEYVAULT_URI = String.Empty;
             string APPLICATION_ID = String.Empty;
             string CERT_THUMBPRINT = String.Empty;
-            if(!isWindows)
+            if(isWindows)
             {
                 KEYVAULT_URI = System.Environment.GetEnvironmentVariable("VAULT_NAME", EnvironmentVariableTarget.User);
                 APPLICATION_ID = System.Environment.GetEnvironmentVariable("APPLICATION_ID", EnvironmentVariableTarget.User);
