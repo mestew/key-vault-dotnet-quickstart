@@ -56,31 +56,25 @@ namespace dotnetconsole
         {
             var ServicePrincipalJSON = Directory.GetCurrentDirectory() + "\\ServicePrincipal.json";
             var CertThumbprintJSON = Directory.GetCurrentDirectory() + "CertThumbprint.json";
-            var VaultJSON = Directory.GetCurrentDirectory() + "ServicePrincipal.json";
-            if(File.Exists(ServicePrincipalJSON))
+            var VaultJSON = Directory.GetCurrentDirectory() + "Vault.json";
+            if(File.Exists(ServicePrincipalJSON) && File.Exists(CertThumbprintJSON) && File.Exists(VaultJSON))
             {
-                ProcessFile(ServicePrincipalJSON, "APP_ID");
+                ProcessFile(ServicePrincipalJSON, "appId");
+                ProcessFile(CertThumbprintJSON, "appId");
+                ProcessFile(VaultJSON, "appId");
             }
 
-            return new Tuple<string, string, string>(ProcessFile(ServicePrincipalJSON, "APP_ID"), CertThumbprintJSON, VaultJSON);
+            return new Tuple<string, string, string>(ProcessFile(ServicePrincipalJSON, "appId"), CertThumbprintJSON, VaultJSON);
         }
 
         private static string ProcessFile(string fileName, string valueToLookFor)
         {
             var result = "";
-
-            
             using (StreamReader SPJson = File.OpenText(fileName))
             {
-                string json = SPJson.ReadToEnd();
-                dynamic stuff = JsonConvert.DeserializeObject(json);
-            }
-            
-            // using (JsonTextReader reader = new JsonTextReader(SPJson))
-            // {
-            //     JObject o2 = (JObject) JToken.ReadFrom(reader);
-            //     result = o2.SelectToken(valueToLookFor).Value<string>();
-            // }
+                var stuff = (JObject)JsonConvert.DeserializeObject(SPJson.ReadToEnd());
+                result = stuff[valueToLookFor].Value<string>();
+            }            
             return result;
         }
     }
