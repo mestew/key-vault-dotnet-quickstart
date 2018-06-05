@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Microsoft.Azure.KeyVault;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System.Collections.ObjectModel;
-using Newtonsoft.Json;
 using System.IO;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
+using Microsoft.Azure.KeyVault;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace dotnetconsole
 {
@@ -46,9 +45,7 @@ namespace dotnetconsole
             Console.WriteLine("Wait method is invoked to wait for Secret Key Value pair to be created");
 
             waitHandle.Wait();
-
-            Console.WriteLine("Secret Key Value pair is now created");
-            
+            Console.WriteLine("Secret Key Value pair is now created");            
             keyVaultObj.GetResult(VaultName);
         }
 
@@ -56,12 +53,12 @@ namespace dotnetconsole
         {
             var ServicePrincipalJSON = Directory.GetCurrentDirectory() + "\\ServicePrincipal.json";
             var CertThumbprintJSON = Directory.GetCurrentDirectory() + "CertThumbprint.json";
-            var VaultJSON = Directory.GetCurrentDirectory() + "Vault.json";
+            var VaultJSON = Directory.GetCurrentDirectory() + "KeyVault.json";
             if(File.Exists(ServicePrincipalJSON) && File.Exists(CertThumbprintJSON) && File.Exists(VaultJSON))
             {
                 ProcessFile(ServicePrincipalJSON, "appId");
                 ProcessFile(CertThumbprintJSON, "appId");
-                ProcessFile(VaultJSON, "appId");
+                ProcessFile(VaultJSON, "Name");
             }
 
             return new Tuple<string, string, string>(ProcessFile(ServicePrincipalJSON, "appId"), CertThumbprintJSON, VaultJSON);
