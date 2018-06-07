@@ -15,6 +15,7 @@ namespace dotnetconsole
     {
         static void Main(string[] args)
         {
+            // var output = Util.ConvertToBase64String("Some Data");
             Console.WriteLine(@"This Application must be run after running the powershell script Setup.ps1!
                                 This DotNet Console Application authenticates to Key Vault!
                                 It also creates a Secret Key Value Pair!

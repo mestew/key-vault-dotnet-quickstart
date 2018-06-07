@@ -4,6 +4,7 @@ using Microsoft.Azure.KeyVault;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Azure.KeyVault.Models;
+using System.Runtime.InteropServices;
 
 namespace dotnetconsole
 {
@@ -23,7 +24,16 @@ namespace dotnetconsole
         public async Task<string> GetAccessToken(string authority, string resource, string scope)
         {
             var context = new AuthenticationContext(authority, TokenCache.DefaultShared);
-            var certByThumbprint = FindCertificateByThumbprint(this.CERT_THUMBPRINT);
+            bool isWindows = System.Runtime.InteropServices.RuntimeInformation
+                                               .IsOSPlatform(OSPlatform.Windows);
+
+            X509Certificate2 certByThumbprint = new X509Certificate2();
+            if(isWindows){
+                certByThumbprint = FindCertificateByThumbprint(this.CERT_THUMBPRINT);
+            } else {
+                certByThumbprint = Util.LoadCertificateFile("cert.pem");
+            }
+
             AssertionCert = new ClientAssertionCertificate(this.APPLICATION_ID, certByThumbprint);
             var result = await context.AcquireTokenAsync(resource, AssertionCert);
             return result.AccessToken;
