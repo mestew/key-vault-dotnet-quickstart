@@ -24,13 +24,14 @@ public class Util
 
     public static byte[] GetPem(string type, byte[] data)
     {
-      string pem = Encoding.UTF8.GetString(data);
-      string header = String.Format("-----BEGIN {0}-----\\n", type);
-      string footer = String.Format("-----END {0}-----", type);
-      int start = pem.IndexOf(header) + header.Length;
-      int end = pem.IndexOf(footer, start);
-      string base64 = pem.Substring(start, (end - start));
-      return Convert.FromBase64String(base64);
+        PemReader pem = new PemReader();
+        string pem = Encoding.UTF8.GetString(data);
+        string header = String.Format("-----BEGIN {0}-----\\n", type);
+        string footer = String.Format("-----END {0}-----", type);
+        int start = pem.IndexOf(header) + header.Length;
+        int end = pem.IndexOf(footer, start);
+        string base64 = pem.Substring(start, (end - start));
+        return Convert.FromBase64String(base64);
     }
 
     public static string ConvertToBase64String(string data)

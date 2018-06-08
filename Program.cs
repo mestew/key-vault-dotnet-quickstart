@@ -35,9 +35,9 @@ namespace dotnetconsole
             else 
             {
                 var result = GetVariablesFromJSON();
-                APPLICATION_ID = result.Item2;
-                CERT_THUMBPRINT = result.Item3;
-                KEYVAULT_URI = result.Item1;
+                APPLICATION_ID = result.Item1;
+                CERT_THUMBPRINT = result.Item2;
+                KEYVAULT_URI = result.Item3;
             }
             
             KeyVault keyVaultObj = new KeyVault(APPLICATION_ID, CERT_THUMBPRINT);
@@ -55,12 +55,12 @@ namespace dotnetconsole
 
         private static Tuple<string, string, string> GetVariablesFromJSON()
         {
-            var ServicePrincipalJSON = Directory.GetCurrentDirectory() + "\\ServicePrincipal.json";
-            var CertThumbprintJSON = Directory.GetCurrentDirectory() + "\\CertThumbprint.txt";
-            var VaultJSON = Directory.GetCurrentDirectory() + "\\KeyVault.json";
+            var ServicePrincipalJSON = Directory.GetCurrentDirectory() + "/ServicePrincipal.json";
+            var CertThumbprintJSON = Directory.GetCurrentDirectory() + "/CertThumbprint.txt";
+            var VaultJSON = Directory.GetCurrentDirectory() + "/KeyVault.json";
             if(File.Exists(ServicePrincipalJSON) && File.Exists(CertThumbprintJSON) && File.Exists(VaultJSON))
             {
-                return new Tuple<string, string, string>(ProcessFile(ServicePrincipalJSON, "appId", true), ProcessFile(CertThumbprintJSON, "", false), ProcessFile(VaultJSON, "Name", true));
+                return new Tuple<string, string, string>(ProcessFile(ServicePrincipalJSON, "appId", true), ProcessFile(CertThumbprintJSON, "", false), ProcessFile(VaultJSON, "name", true));
             } 
 
             return new Tuple<string, string, string>("", "", "");
