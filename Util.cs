@@ -24,7 +24,7 @@ public class Util
 
     public static byte[] GetPem(string type, byte[] data)
     {
-        PemReader pem = new PemReader();
+        // PemReader pem = new PemReader();
         string pem = Encoding.UTF8.GetString(data);
         string header = String.Format("-----BEGIN {0}-----\\n", type);
         string footer = String.Format("-----END {0}-----", type);
