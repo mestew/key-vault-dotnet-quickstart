@@ -2,6 +2,7 @@
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
@@ -76,7 +77,8 @@ namespace dotnetconsole
                 }
                 else {
                     var contents = ContentsOfFile.ReadToEnd();
-                    result = contents.Split("=")[1];
+                    contents = contents.Split("=")[1];
+                    result = Regex.Replace(contents, @"\t|\n|\r", "");
                 }
             }            
             return result;

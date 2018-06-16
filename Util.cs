@@ -15,7 +15,7 @@ public class Util
             fs.Read(data, 0, data.Length);
             if (data[0] != 0x30)
             {
-            res = GetPem("CERTIFICATE", data);
+                res = GetPem("CERTIFICATE", data);
             }
             X509Certificate2 x509 = new X509Certificate2(res); //Exception hit here
             return x509;
@@ -26,11 +26,13 @@ public class Util
     {
         // PemReader pem = new PemReader();
         string pem = Encoding.UTF8.GetString(data);
-        string header = String.Format("-----BEGIN {0}-----\\n", type);
+        string header = String.Format("-----BEGIN {0}-----", type);
         string footer = String.Format("-----END {0}-----", type);
         int start = pem.IndexOf(header) + header.Length;
         int end = pem.IndexOf(footer, start);
         string base64 = pem.Substring(start, (end - start));
+        base64 = base64.Replace('-', '+');
+        base64 = base64.Replace('_', '/');
         return Convert.FromBase64String(base64);
     }
 

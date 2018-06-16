@@ -1,7 +1,7 @@
 {
-  "id": "/subscriptions/2c0eadf2-5107-4d43-bef3-79729700fe01/resourceGroups/MacRGPrashanth/providers/Microsoft.KeyVault/vaults/MacVaultPrashanth",
+  "id": "/subscriptions/0ee75fc1-4310-48d9-b5ca-023abffca46d/resourceGroups/UbuntuHyperVRG/providers/Microsoft.KeyVault/vaults/UbuntuHyperVault",
   "location": "eastus",
-  "name": "MacVaultPrashanth",
+  "name": "UbuntuHyperVault",
   "properties": {
     "accessPolicies": [
       {
@@ -59,21 +59,19 @@
         "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
       }
     ],
-    "additionalProperties": {
-      "provisioningState": "RegisteringDns"
-    },
     "createMode": null,
     "enableSoftDelete": null,
     "enabledForDeployment": false,
     "enabledForDiskEncryption": null,
     "enabledForTemplateDeployment": null,
+    "provisioningState": "RegisteringDns",
     "sku": {
       "name": "standard"
     },
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "vaultUri": "https://MacVaultPrashanth.vault.azure.net"
+    "vaultUri": "https://UbuntuHyperVault.vault.azure.net"
   },
-  "resourceGroup": "MacRGPrashanth",
+  "resourceGroup": "UbuntuHyperVRG",
   "tags": {},
   "type": "Microsoft.KeyVault/vaults"
 }

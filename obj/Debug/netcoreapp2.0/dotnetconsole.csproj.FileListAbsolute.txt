@@ -19,3 +19,14 @@ C:/Users/pryerram/Code/dotnetconsole/obj/Debug/netcoreapp2.0/dotnetconsole.cspro
 /Users/z/code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.AssemblyInfo.cs
 /Users/z/code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.dll
 /Users/z/code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.pdb
+/home/pryerram/Code/key-vault-dotnet-quickstart/bin/Debug/netcoreapp2.0/dotnetconsole.deps.json
+/home/pryerram/Code/key-vault-dotnet-quickstart/bin/Debug/netcoreapp2.0/dotnetconsole.runtimeconfig.json
+/home/pryerram/Code/key-vault-dotnet-quickstart/bin/Debug/netcoreapp2.0/dotnetconsole.runtimeconfig.dev.json
+/home/pryerram/Code/key-vault-dotnet-quickstart/bin/Debug/netcoreapp2.0/dotnetconsole.dll
+/home/pryerram/Code/key-vault-dotnet-quickstart/bin/Debug/netcoreapp2.0/dotnetconsole.pdb
+/home/pryerram/Code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.csprojAssemblyReference.cache
+/home/pryerram/Code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.csproj.CoreCompileInputs.cache
+/home/pryerram/Code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.AssemblyInfoInputs.cache
+/home/pryerram/Code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.AssemblyInfo.cs
+/home/pryerram/Code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.dll
+/home/pryerram/Code/key-vault-dotnet-quickstart/obj/Debug/netcoreapp2.0/dotnetconsole.pdb
