@@ -31,7 +31,7 @@ namespace dotnetconsole
             if(isWindows){
                 certByThumbprint = FindCertificateByThumbprint(this.CERT_THUMBPRINT);
             } else {
-                certByThumbprint = Util.LoadCertificateFile("cert.pem");
+                certByThumbprint = Util.ConvertFromPfxToPem("cert.pem");
             }
 
             AssertionCert = new ClientAssertionCertificate(this.APPLICATION_ID, certByThumbprint);

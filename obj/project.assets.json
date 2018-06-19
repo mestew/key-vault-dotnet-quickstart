@@ -4726,28 +4726,37 @@
     ]
   },
   "packageFolders": {
-    "/home/pryerram/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\pryerram\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/pryerram/Code/key-vault-dotnet-quickstart/dotnetconsole.csproj",
+      "projectUniqueName": "c:\\Users\\pryerram\\Code\\KeyVault\\key-vault-dotnet-quickstart\\dotnetconsole.csproj",
       "projectName": "dotnetconsole",
-      "projectPath": "/home/pryerram/Code/key-vault-dotnet-quickstart/dotnetconsole.csproj",
-      "packagesPath": "/home/pryerram/.nuget/packages/",
-      "outputPath": "/home/pryerram/Code/key-vault-dotnet-quickstart/obj/",
+      "projectPath": "c:\\Users\\pryerram\\Code\\KeyVault\\key-vault-dotnet-quickstart\\dotnetconsole.csproj",
+      "packagesPath": "C:\\Users\\pryerram\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\pryerram\\Code\\KeyVault\\key-vault-dotnet-quickstart\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/pryerram/.nuget/NuGet/NuGet.Config"
+        "c:\\Users\\pryerram\\Code\\NuGet.Config",
+        "C:\\Users\\pryerram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://wanuget/CoreXTMirror/nuget/": {},
+        "http://wanuget/ManualMirror/nuget/": {},
+        "http://wanuget/NugetMirror/nuget/": {},
+        "http://wanuget/OSS/nuget/": {},
+        "http://wanuget/Official/nuget/": {},
+        "http://wanuget/toolset/nuget/": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -6,8 +6,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
-using Microsoft.Azure.KeyVault;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.Azure.KeyVault;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace dotnetconsole
@@ -38,16 +38,12 @@ namespace dotnetconsole
                 APPLICATION_ID = result.Item1;
                 CERT_THUMBPRINT = result.Item2;
                 KEYVAULT_URI = result.Item3;
-            }
-            
+            }            
             KeyVault keyVaultObj = new KeyVault(APPLICATION_ID, CERT_THUMBPRINT);
-            var VaultName = "https://" + KEYVAULT_URI + ".vault.azure.net/";
-            
+            var VaultName = "https://" + KEYVAULT_URI + ".vault.azure.net/";            
             var waitHandle = keyVaultObj.CreateSecretKeyValuePair(VaultName);    
-
             Console.WriteLine("Vault URI is! {0}", VaultName);
             Console.WriteLine("Wait method is invoked to wait for Secret Key Value pair to be created");
-
             waitHandle.Wait();
             Console.WriteLine("Secret Key Value pair is now created");            
             keyVaultObj.GetResult(VaultName);
