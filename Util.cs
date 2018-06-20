@@ -10,6 +10,7 @@ using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.OpenSsl;
 
+// This class method's are used to convert a pem file into an X509Certificate2 class
 public class Util
 {
     public static X509Certificate2 ConvertFromPfxToPem(string filename)
@@ -50,7 +51,6 @@ public class Util
         }
 
         RSAParameters rsaParameters = new RSAParameters();
-
         rsaParameters.Modulus = keyParams.Modulus.ToByteArrayUnsigned();
         rsaParameters.P = keyParams.P.ToByteArrayUnsigned();
         rsaParameters.Q = keyParams.Q.ToByteArrayUnsigned();
@@ -59,7 +59,6 @@ public class Util
         rsaParameters.InverseQ = keyParams.QInv.ToByteArrayUnsigned();
         rsaParameters.D = keyParams.Exponent.ToByteArrayUnsigned();
         rsaParameters.Exponent = keyParams.PublicExponent.ToByteArrayUnsigned();
-
         RSACryptoServiceProvider rsaKey = new RSACryptoServiceProvider(2048);
         rsaKey.ImportParameters(rsaParameters);
         return rsaKey;

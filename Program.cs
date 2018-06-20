@@ -34,7 +34,7 @@ namespace dotnetconsole
             }
             else 
             {
-                var result = GetVariablesFromJSON();
+                var result = GetVariablesFromLocalFiles();
                 APPLICATION_ID = result.Item1;
                 CERT_THUMBPRINT = result.Item2;
                 KEYVAULT_URI = result.Item3;
@@ -49,7 +49,7 @@ namespace dotnetconsole
             keyVaultObj.GetResult(VaultName);
         }
 
-        private static Tuple<string, string, string> GetVariablesFromJSON()
+        private static Tuple<string, string, string> GetVariablesFromLocalFiles()
         {
             var ServicePrincipalJSON = Directory.GetCurrentDirectory() + "/ServicePrincipal.json";
             var CertThumbprintJSON = Directory.GetCurrentDirectory() + "/CertThumbprint.txt";
