@@ -49,7 +49,6 @@ public class Util
             keyParams = ((RsaPrivateCrtKeyParameters)new PemReader(reader).ReadObject());
         }
 
-        
         RSAParameters rsaParameters = new RSAParameters();
 
         rsaParameters.Modulus = keyParams.Modulus.ToByteArrayUnsigned();

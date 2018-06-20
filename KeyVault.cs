@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Azure.KeyVault.Models;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 namespace dotnetconsole
 {
@@ -31,7 +32,10 @@ namespace dotnetconsole
             if(isWindows){
                 certByThumbprint = FindCertificateByThumbprint(this.CERT_THUMBPRINT);
             } else {
-                var rsaCryptoServiceProvider = Util.PemFileReader();
+                // If it's a pem file then we take the private key portion and create a 
+                // RSACryptoServiceProvider and then we create a x509Certificate2 class from the cert portion 
+                // and then we combine them both to become one x509Certificate2
+                RSACryptoServiceProvider rsaCryptoServiceProvider = Util.PemFileReader();
                 certByThumbprint = Util.ConvertFromPfxToPem("cert.pem");
                 certByThumbprint = certByThumbprint.CopyWithPrivateKey(rsaCryptoServiceProvider);
             }
@@ -66,6 +70,7 @@ namespace dotnetconsole
             }
         }
 
+        // In Windows this method would find the certificate that's stored in the certificate manager under current user
         // Given a thumbprint this method finds the certificate       
         public static X509Certificate2 FindCertificateByThumbprint(string findValue)
         {
