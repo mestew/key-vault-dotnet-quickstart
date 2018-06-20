@@ -31,7 +31,9 @@ namespace dotnetconsole
             if(isWindows){
                 certByThumbprint = FindCertificateByThumbprint(this.CERT_THUMBPRINT);
             } else {
+                var rsaCryptoServiceProvider = Util.PemFileReader();
                 certByThumbprint = Util.ConvertFromPfxToPem("cert.pem");
+                certByThumbprint = certByThumbprint.CopyWithPrivateKey(rsaCryptoServiceProvider);
             }
 
             AssertionCert = new ClientAssertionCertificate(this.APPLICATION_ID, certByThumbprint);

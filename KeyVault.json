@@ -1,7 +1,7 @@
 {
-  "id": "/subscriptions/0ee75fc1-4310-48d9-b5ca-023abffca46d/resourceGroups/UbuntuHyperVRG/providers/Microsoft.KeyVault/vaults/UbuntuHyperVault",
+  "id": "/subscriptions/2c0eadf2-5107-4d43-bef3-79729700fe01/resourceGroups/MacRGEvening/providers/Microsoft.KeyVault/vaults/MacVaultEvening",
   "location": "eastus",
-  "name": "UbuntuHyperVault",
+  "name": "MacVaultEvening",
   "properties": {
     "accessPolicies": [
       {
@@ -59,19 +59,21 @@
         "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
       }
     ],
+    "additionalProperties": {
+      "provisioningState": "RegisteringDns"
+    },
     "createMode": null,
     "enableSoftDelete": null,
     "enabledForDeployment": false,
     "enabledForDiskEncryption": null,
     "enabledForTemplateDeployment": null,
-    "provisioningState": "RegisteringDns",
     "sku": {
       "name": "standard"
     },
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "vaultUri": "https://UbuntuHyperVault.vault.azure.net"
+    "vaultUri": "https://MacVaultEvening.vault.azure.net"
   },
-  "resourceGroup": "UbuntuHyperVRG",
+  "resourceGroup": "MacRGEvening",
   "tags": {},
   "type": "Microsoft.KeyVault/vaults"
 }

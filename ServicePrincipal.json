@@ -1,8 +1,8 @@
 {
-  "appId": "b9f3654f-bfab-443f-88cd-76694ebff318",
-  "displayName": "UbuntuHyperVSP",
-  "fileWithCertAndPrivateKey": "/home/pryerram/tmpum4k_j87.pem",
-  "name": "http://UbuntuHyperVSP",
+  "appId": "797144af-29c4-4593-91f1-159c7178df04",
+  "displayName": "MacSPEvening",
+  "fileWithCertAndPrivateKey": "/Users/z/tmpk1zfht5k.pem",
+  "name": "http://MacSPEvening",
   "password": null,
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
 }
