@@ -1,7 +1,7 @@
 {
-  "id": "/subscriptions/2c0eadf2-5107-4d43-bef3-79729700fe01/resourceGroups/MacRGEvening/providers/Microsoft.KeyVault/vaults/MacVaultEvening",
+  "id": "/subscriptions/2c0eadf2-5107-4d43-bef3-79729700fe01/resourceGroups/MacWedRG/providers/Microsoft.KeyVault/vaults/MacWedVault",
   "location": "eastus",
-  "name": "MacVaultEvening",
+  "name": "MacWedVault",
   "properties": {
     "accessPolicies": [
       {
@@ -71,9 +71,9 @@
       "name": "standard"
     },
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "vaultUri": "https://MacVaultEvening.vault.azure.net"
+    "vaultUri": "https://MacWedVault.vault.azure.net"
   },
-  "resourceGroup": "MacRGEvening",
+  "resourceGroup": "MacWedRG",
   "tags": {},
   "type": "Microsoft.KeyVault/vaults"
 }
