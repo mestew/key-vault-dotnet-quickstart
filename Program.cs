@@ -49,6 +49,10 @@ namespace dotnetconsole
             keyVaultObj.GetResult(VaultName);
         }
 
+        /*
+            Helper method used to parse local files created. 
+            This is helpful when running this sample on Mac/Linux
+        */
         private static Tuple<string, string, string> GetVariablesFromLocalFiles()
         {
             var ServicePrincipalJSON = Directory.GetCurrentDirectory() + "/ServicePrincipal.json";
@@ -62,6 +66,10 @@ namespace dotnetconsole
             return new Tuple<string, string, string>("", "", "");
         }
 
+        /*
+            Helper method used to parse local files created. 
+            This is helpful when running this sample on Mac/Linux
+        */
         private static string ProcessFile(string fileName, string valueToLookFor, bool isJson)
         {
             var result = "";

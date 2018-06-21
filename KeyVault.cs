@@ -21,7 +21,10 @@ namespace dotnetconsole
    
         public static ClientAssertionCertificate AssertionCert { get; set; }
         
-        // This method is used to get a token from Azure Active Directory. 
+        /*  This method is used to get a token from Azure Active Directory. 
+            Once we have a token from AAD, we present that to Key Vault 
+            and then we retreive the secret key value pair
+        */
         public async Task<string> GetAccessToken(string authority, string resource, string scope)
         {
             var context = new AuthenticationContext(authority, TokenCache.DefaultShared);
@@ -45,6 +48,9 @@ namespace dotnetconsole
             return result.AccessToken;
         }
 
+        /*
+            This method shows you how to create a secret key value pair in Key Vault
+        */
         public async Task CreateSecretKeyValuePair(string vaultBaseURL)
         {
             System.Console.WriteLine("Authenticating to Key Vault using ADAL Callback to create Secret Key Value Pair");
@@ -69,7 +75,7 @@ namespace dotnetconsole
             }
         }
 
-        // In Windows this method would find the certificate that's stored in the certificate manager under current user
+        // On Windows this method would find the certificate that's stored in the certificate manager under current user
         // Given a thumbprint this method finds the certificate       
         public static X509Certificate2 FindCertificateByThumbprint(string findValue)
         {
