@@ -73,15 +73,18 @@ Once cloned open the repo in any text editor and run the following command w.r.t
 - We then want to set these variables by running the following commands
     - On Windows (Use set)
     - On Mac/Linux (Use export instead of set)
-    <br />
+    
+    
     ```
         export SERVICE_PRINCIPAL_NAME="service_principal_name" 
     ```
-    <br />
+    
+    
     ```
         export RESOURCE_GROUP_NAME="resource_group_name"
     ```
-    <br />
+    
+    
     ```
         export VAULT_NAME="vault_name"
     ```
