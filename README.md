@@ -59,12 +59,10 @@ In addition you would need
 - Download the powershell file locally from this [repo](https://github.com/yvprashanth/key-vault-dotnet-quickstart) (Named Setup.ps1) and run it in administrator mode
 - Go to C:\Temp folder by using cd C:\temp command. 
 - Find the cert named .pfx in that folder and install it on your machine as "Current User" (by right clicking on the .pfx file and selecting Install)
-- Clone this repository by running this command on command line / bash 
-    ```
-    git clone https://github.com/yvprashanth/key-vault-dotnet-quickstart.git
-    ```
 Once cloned open the repo in any text editor and run the following command w.r.t that folder
-    - dotnet run
+   ```
+   dotnet run
+   ```
 
 ### On Mac/Linux
 - This quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
