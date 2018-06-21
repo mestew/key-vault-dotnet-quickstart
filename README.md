@@ -1,6 +1,14 @@
 # Azure Key Vault - Getting Started in .NET
-This sample demonstrates how to get started with Key Vault in .NET
-This project allows you to do 
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) using keys protected by hardware security modules (HSMs).
+
+Azure Key Vault allows a developer to securely store secrets and cryptographic keys while still having granular control on whom has access and what they can do.
+
+In this example you learn how to:
+- **How to authenticate to Key Vault?**
+- **How to create a secret in Key Vault?**
+- **How to read a secret from Key Vault?**
+
+These are the steps in doing so
 - Create an application in Azure Active Directory
 - Create a Service Principal associated with the application 
 - Create a Key Vault
