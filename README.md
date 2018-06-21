@@ -18,6 +18,29 @@ In addition you would need
     * Please download git from [here](https://git-scm.com/downloads).
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
     * For the purpose of this tutorial we would work with Azure CLI which is available on Windows, Mac and Linux
+* [Powershell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0&viewFallbackFrom=azurermps-5.5.0)
+    * Please run the following commands in powershell (Admin mode)
+    ```
+    Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path
+
+    Install-Module PowerShellGet -Force
+    
+    # Install the Azure Resource Manager modules from the PowerShell Gallery
+    Install-Module -Name AzureRM -AllowClobber
+    ```
+    By default, the PowerShell gallery is not configured as a Trusted repository for PowerShellGet. The first time you use the PSGallery you see the following prompt
+
+    ```
+    Untrusted repository
+
+    You are installing the modules from an untrusted repository. If you trust this repository, change
+    its InstallationPolicy value by running the Set-PSRepository cmdlet.
+    
+    Are you sure you want to install the modules from 'PSGallery'?
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): Y
+    ```
+
+    Answer 'Yes' or 'Yes to All' to continue with the installation.
 
 
 ## Quickstart
